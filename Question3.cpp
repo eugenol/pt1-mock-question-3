@@ -41,7 +41,7 @@ bool operator>(Fraction LHS, Fraction RHS)
 Fraction Fraction::add(const Fraction &a, const int &b)
 {
 	Fraction temp = a;
-	temp.num = b*temp.denom;
+	temp.num += b*temp.denom;
 	
 	return temp;
 }
@@ -49,7 +49,42 @@ Fraction Fraction::add(const Fraction &a, const int &b)
 Fraction Fraction::add(const int &b, const Fraction &a)
 {
 	Fraction temp = a;
-	temp.num = b*temp.denom;
+	temp.num += b*temp.denom;
 
 	return temp;
+}
+
+int main(int argc, char **argv)
+{
+	Fraction temp1(1, 2), temp2(3, 4), temp3(7, 8), temp4(4, 9);
+
+	if (temp2 > temp1)
+	{
+		temp1.print();
+		cout << " is larger than ";
+		temp2.print();
+	}
+	else
+	{
+		temp1.print();
+		cout << " is smaller than ";
+		temp2.print();
+	}
+	cout << endl;
+
+	temp1.print();
+		cout << " + 1 = ";
+	temp3 = temp3.add(temp1, 1);
+		temp3.print();
+	cout << endl;
+
+
+	cout << "1 + ";
+	temp1.print();
+	cout << " = ";
+	temp4 = temp4.add(1, temp1);
+	temp4.print();
+	cout << endl;
+
+	return 0;
 }
